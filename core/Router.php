@@ -34,8 +34,6 @@ class  Router{
 						$request->titre=$parames['2'];
 						$request->prefixes=self::$prefixes[$parames['1']];
 						$request->action = isset($parames['2']) ? $parames['2'] : 'index' ;
-
-						//$request->action =  $parames['2']  ;
 						$request->chemain =DS.self::$prefixes[$parames['1']].DS.$parames['2']  ;
 						$request->params = array_slice($parames,3);
 

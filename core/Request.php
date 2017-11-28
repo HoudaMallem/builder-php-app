@@ -6,8 +6,6 @@ class  Request{
 
 	function __construct(){
 	
-		//$this->url = $_SERVER['REQUEST_URI'];
-
     $this->url = $_GET['url'];
 
 
@@ -17,9 +15,7 @@ class  Request{
         $this->data->$key=$value;  
       }
     }
-   // print_r($_POST);
 
-		
 	}
 
 

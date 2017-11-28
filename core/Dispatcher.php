@@ -21,10 +21,8 @@ class  Dispatcher{
 					$actionfunction=$this->request->action;
 					if($this->request->controller){
 						if(in_array($this->request->action , get_class_methods($controller) )){
-						//	$this->error('le controller');	
 							$controller->$actionfunction($this->request->chemain);
 						}else{
-							//call_user_func_array(array($controller,$this->request->action),$this->request->params);
 							$this->error('le controller');
 						}
 					}
@@ -59,42 +57,35 @@ class  Dispatcher{
 	}
 	function loadController(){
 
-			$name=ucfirst($this->request->controller).'Controller';
-			$file= WEBROOT.DS.'controller'.DS.$name.'.php';
-			if (file_exists($file)){
+		$name=ucfirst($this->request->controller).'Controller';
+		$file= WEBROOT.DS.'controller'.DS.$name.'.php';
+		if (file_exists($file)){
 			require $file;
-
 			$fileaction= new $name($this->request);
 			$fileaction->session = new Session();
 			return $fileaction;
 		}else{
-					$this->error('le controller');
-					return false;
-				}
+			$this->error('le controller');
+			return false;
+		}
 				
 
 	}
 
-		function loadModule(){
-			//if($this->request->chemain){
-				$name=ucfirst($this->request->action).'Controller';
-				$module=ucfirst($this->request->prefixes);
-				$action=ucfirst($this->request->action);
-				$file= WEBROOT.DS.'controller'.DS.$module.DS.$action.'.php';
-				if (file_exists($file)){
-					require($file);
-					$fileaction= new $name($this->request);
-					return $fileaction;
-				}else{
-					$this->error('le controller');
-					return false;
-				}
-				
-				
-		
-		//	}else{
-		//		$this->pagesaccueil();
-		//	}
+	function loadModule(){
+
+		$name=ucfirst($this->request->action).'Controller';
+		$module=ucfirst($this->request->prefixes);
+		$action=ucfirst($this->request->action);
+		$file= WEBROOT.DS.'controller'.DS.$module.DS.$action.'.php';
+		if (file_exists($file)){
+			require($file);
+			$fileaction= new $name($this->request);
+			return $fileaction;
+		}else{
+			$this->error('le controller');
+			return false;
+		}
 	}
 
 }
