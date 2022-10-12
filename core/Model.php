@@ -3,7 +3,7 @@ class Model{
 public $table ;
 public $db='default' ;
 static $connections= array() ;
-//------sauvgarder et mis a jours  les donnes -------------------
+
     function __construct(){
       $conf=conf::$databases[$this->db];
         if(isset(Model::$connections[$this->db])){
@@ -55,8 +55,6 @@ public function save($data,$id,$champ=null){
     $bdd->query($sql);
 return $sql;
 }
-//---------------------------------------------------------
-//------supprimer  donnes -------------------
 
 public function supprimer($id="",$champ){
     $sql="delete FROM `".$this->table."` WHERE ";
@@ -75,8 +73,6 @@ public function supprimer($id="",$champ){
     $data=$bdd->query($sql) ;
 
 }
-//---------------------------------------------------------------------
-//-----------------find des donne  dans une table ------------------------/-/
 
 public function find($id_liste=null,$wherefield=null,$fieldOrder=null,$typecondition=null,$caractairlike=null,$champs=null){
     $result = array();
