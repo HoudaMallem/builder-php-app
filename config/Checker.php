@@ -1,7 +1,7 @@
 <?php
 
 /****
-create metadata used on the website 
+create metadata config used on the website 
 ******/
 
 $modul = [{"reference":"Md1","meta_titre":"meta1, meta2","meta_mots":" ","meta_disc":""}]
