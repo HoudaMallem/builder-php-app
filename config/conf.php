@@ -1,7 +1,8 @@
 <?php
 class  conf{
 /***
-configuration de la base des donnes  
+
+database configuration 
 
 ***/
 
@@ -10,20 +11,19 @@ static $databases=array(
         'host' => 'localhost',
 		'database' => 'table',
 		'login' => 'login',
-		'passwoed' => 'password',
+		'password' => 'password',
 		)
 	);
 
 }
 /***
-configure les prefix 
+default prefix configuration 
 
 ***/
 Router::prefix('MH_AUTHO' , 'login');
 
 /***
-Liste toute les composant dynamique en deux langue
-
+define the default list of all dynamic components used
 ***/
 Router::$listecontrollor=array(
        array(
