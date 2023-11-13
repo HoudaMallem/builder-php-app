@@ -1,9 +1,7 @@
 <?php
 
 /****
-définir toute les module de ton site
-une module c'est d'une rebrique du site créer dynamiquement  
-
+create metadata used on the website 
 ******/
 
 $modul = [{"reference":"Md1","meta_titre":"meta1, meta2","meta_mots":" ","meta_disc":""}]
@@ -21,8 +19,7 @@ foreach ($modul as $modul) {
 $modelchecked->table='menu';
 $menu=$modelchecked-> find(3,'id_ges');
 /****
-définir le lien de ton site avec les url en fr et en
-
+create a router that supports multiple languages 
 
 ******/
 foreach ($menu as $menu) {
