@@ -1,8 +1,7 @@
 <?php	
 if(!empty($this->request->prefixes)){
 		/****
-
-			controle les access au pages 
+   check the authentication and authorization  before dispatching the request 
 
 		****/
 
